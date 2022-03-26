@@ -1,5 +1,5 @@
 module.exports = {
-  posts: [{ id: '1', title: 'Teste Mural', description: 'Descrição Tste' }],
+  posts: [{ id: '1', title: 'Teste Mural', description: 'Descrição Teste' }],
   getAll() {
     return this.posts
   },
