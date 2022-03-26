@@ -1,18 +1,10 @@
 const express = require('express')
 const app = express()
 const PORT = 3000
-const posts = require('./model/posts')
+const path = require('path')
+const apiRoute = require('./routes/api')
 
-app.get('/all', (req, res) => {
-  res.json(JSON.stringify(posts.getAll()))
-})
-
-app.post('/new', express.json(), (req, res) => {
-  let title = req.body.title
-  let description = req.body.description
-
-  posts.newPost(title, description)
-  res.send('Post Adicionado')
-})
+app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/api', apiRoute)
 
 app.listen(PORT, () => console.log('Server running on Port: ', PORT))
