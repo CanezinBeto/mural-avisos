@@ -1,5 +1,5 @@
 function updatePosts() {
-  const url = 'http://localhost:3000/api/all'
+  const url = 'http://192.168.0.11:3000/api/all'
 
   fetch(url)
     .then((res) => res.json())
@@ -26,7 +26,25 @@ function updatePosts() {
     })
 }
 
-function newPost() {}
+function newPost() {
+  let title = document.getElementById('title').value
+  let description = document.getElementById('desc').value
+  let post = {
+    title,
+    description,
+  }
+  const options = {
+    method: 'POST',
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: JSON.stringify(post),
+  }
+
+  fetch('http://192.168.0.11:3000/api/new', options).then(() => {
+    updatePosts()
+    document.getElementById('title').value = ''
+    document.getElementById('desc').value = ''
+  })
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   updatePosts()
