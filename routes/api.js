@@ -18,7 +18,7 @@ router.post('/new', express.json(), (req, res) => {
   let description = req.body.description
 
   posts.newPost(title, description)
-  res.send('Post Adicionado')
+  res.send('Post Adicionado com sucesso')
 })
 
 module.exports = router

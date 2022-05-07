@@ -10,13 +10,13 @@ function updatePosts() {
       posts.forEach((post) => {
         let postElement = `
         <div id=${post.id} class="card mb-5">
-        <div class="card-header">
-          <h5 class="card-title">${post.title}</h5>
+          <div class="card-header">
+            <h5 class="card-title">${post.title}</h5>
+          </div>
+          <div class="card-body">
+            <div class="card-text">${post.description}</div>
+          </div>
         </div>
-        <div class="card-body">
-          <div class="card-text">${post.description}</div>
-        </div>
-      </div>
         `
 
         postElements += postElement
